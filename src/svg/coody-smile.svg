@@ -15,7 +15,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="coody-smile.svg">
+   sodipodi:docname="coody-smile.svg"
+   inkscape:export-filename="D:\programs\game-off-2016\src\svg\coody-smile.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -26,7 +29,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.66"
-     inkscape:cx="351.0605"
+     inkscape:cx="74.545348"
      inkscape:cy="307.07773"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -47,7 +50,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -138,25 +141,5 @@
        id="path4166"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
-    <g
-       id="g4174"
-       transform="matrix(0.82899504,0.02044804,-0.02013046,0.81611985,115.82221,198.38106)"
-       style="stroke-width:8.50771713;stroke-miterlimit:4;stroke-dasharray:none">
-      <path
-         inkscape:connector-curvature="0"
-         id="path4168"
-         d="m 274.24242,791.7561 -43.93939,33.33333 43.93939,24.24243"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:8.50771713;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path4170"
-         d="m 366.66667,791.7561 45.45454,34.84848 -45.45454,25.75758"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:8.50771713;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path4172"
-         d="M 346.9697,782.66519 300,861.45307"
-         style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:8.50771713;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    </g>
   </g>
 </svg>
