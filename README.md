@@ -30,3 +30,4 @@ Sound effects is done with [LMMS](https://lmms.io/) and [GeneralUser GS](http://
 
 The content of this game is under [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/).
 The software of this game is under [MIT LICENSE](https://opensource.org/licenses/mit-license.html).
+The [Varela Round](https://github.com/alefalefalef/Varela-Round-Hebrew) font is under [Open Font License](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL_web).

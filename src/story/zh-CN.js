@@ -1,7 +1,9 @@
-var STORY = {
+window.STORY = {
   levels: {
     1: [
-      { pic: 'smile', text: '你好哇，欢迎来到Boxiehub工作。从今天开始我就是你的搭档啦～' },
+      { pic: 'smile', text: '你好哇，欢迎来到Boxiehub工作～' },
+      { func: 'cover' },
+      { pic: 'smile', text: '那么从今天开始我就是你的搭档啦，我叫Coody，是个小机器人～' },
       { func: 'showMap' },
       { pic: 'idea', text: '现在屏幕上展示出的就是工厂的地图。' },
       { pic: 'teach', text: '每天都会有箱子被运送到工厂，我们的工作就是把这些箱子推到它们应该在的位置。' },

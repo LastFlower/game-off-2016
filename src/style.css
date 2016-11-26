@@ -1,0 +1,54 @@
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  font-family: 'Varela Round', sans-serif;
+  overflow: hidden;
+  background: #eee;
+  cursor: default;
+}
+#game-wrapper {
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+#game {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1920px;
+  height: 1080px;
+  transform: translate(50%, 50%) scale(1, 1) translateZ(0);
+}
+
+#dialog {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  cursor: pointer;
+}
+#pic {
+  position: absolute;
+  left: 160px;
+  bottom: 0;
+}
+#text-background {
+  position: absolute;
+  right: 160px;
+  bottom: 0;
+}
+#text {
+  position: absolute;
+  font-size: 40px;
+  right: 220px;
+  width: 760px;
+  bottom: 80px;
+  height: 300px;
+  line-height: 60px;
+  color: #222;
+}
