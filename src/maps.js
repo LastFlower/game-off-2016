@@ -153,6 +153,20 @@ var MAPS = '\
       map[y] = map[y].slice(0, x) + char + map[y].slice(x+1)
     }
 
+    // play audio by move type
+    var playAudioByMove = function(moveType){
+      var MOVE_AUDIO_MAP = {
+        reverse: '65',
+        walk: '13',
+        push: '12',
+        victory: '35',
+        breaking: 'breaking',
+      }
+      var $audio = document.getElementById('audio-' + MOVE_AUDIO_MAP[moveType])
+      $audio.currentTime = 0
+      $audio.play()
+    }
+
     // show and wait user events
     $control.removeAttribute('hidden')
     var moveCoody = {
@@ -161,6 +175,7 @@ var MAPS = '\
         else updateMap(map, x1, y1, '-')
         if(map[y2][x2] === 'x') updateMap(map, x2, y2, '*')
         else updateMap(map, x2, y2, '#')
+        playAudioByMove('walk')
       },
       push: function(x1, y1, x2, y2, x3, y3){
         if(map[y1][x1] === '*') updateMap(map, x1, y1, 'x')
@@ -169,6 +184,7 @@ var MAPS = '\
         else updateMap(map, x2, y2, '#')
         if(map[y3][x3] === 'x') updateMap(map, x3, y3, 'c')
         else updateMap(map, x3, y3, 'o')
+        playAudioByMove('push')
       },
       testMove: function(dx, dy){
         var newPosType = map[coodyPos.y + dy] && map[coodyPos.y + dy][coodyPos.x + dx]
@@ -202,6 +218,7 @@ var MAPS = '\
         history.pop()
         map = history.pop().split('\n')
         updateBoxies(map, 'failing')
+        playAudioByMove('reverse')
       },
       f1: function(){},
       f2: function(){},

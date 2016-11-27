@@ -22,12 +22,31 @@
     nextStep()
   }
 
+  // play audio by pic
+  var playAudioByPic = function(pic){
+    var PIC_AUDIO_MAP = {
+      awful: '65',
+      failing: '65',
+      idea: '13',
+      power: '13',
+      sad: '65',
+      smile: '13',
+      teach: '12',
+      thinking: '12',
+      victory: '35',
+    }
+    var $audio = document.getElementById('audio-' + PIC_AUDIO_MAP[pic])
+    $audio.currentTime = 0
+    $audio.play()
+  }
+
   // show common text dialog
   var $dialog = document.getElementById('dialog')
   var $pic = document.getElementById('pic')
   var $text = document.getElementById('text')
   var $textContent = $text.childNodes[0]
   var showText = function(picName, text, cb){
+    playAudioByPic(picName)
     $pic.replaceChild(window.preloaded['svg/coody-' + picName + '.svg'], $pic.childNodes[0])
     $dialog.removeAttribute('hidden')
     var ended = false
