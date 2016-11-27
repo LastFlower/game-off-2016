@@ -8,18 +8,37 @@
   <link href="src/style.css" rel="stylesheet">
 </head>
 <body>
-  <div id="game-wrapper">
+  <div id="loading" style="color:#bbb">Loading...</div>
+  <div hidden id="game-wrapper">
     <div id="game">
-      <div id="map"></div>
+      <div id="control"><svg></svg>
+        <div id="map-boxies"></div>
+        <div id="buttons"><!--
+          --><span id="btn-up" class="button">&#9650;</span><!--
+          --><span id="btn-down" class="button">&#9660;</span><!--
+          --><span id="btn-left" class="button">&#9664;</span><!--
+          --><span id="btn-right" class="button">&#9654;</span><!--
+          --><span id="btn-reverse" class="button">&#11119;</span><!--
+          --><span id="btn-f1" class="button button-wide button-disabled">[EMPTY]</span><!--
+          --><span id="btn-f2" class="button button-wide button-disabled">[EMPTY]</span><!--
+        --></div>
+      </div>
       <div id="dialog">
         <div id="background"></div>
         <div id="text-background"></div>
         <div id="text">&nbsp;</div>
         <div id="pic"><img alt=""></div>
       </div>
+      <div hidden id="cover">
+        <div id="cover-title">Boxie Coody</div>
+        <div id="cover-start">Play &gt;&gt;</div>
+        <div class="cover-credit">Created by <a href="https://github.com/LastFlower/game-off-2016">LastFlower Team</a> with &#10084;</div>
+        <div class="cover-credit">for GitHub Game Off 2016</div>
+      </div>
     </div>
   </div>
   <script src="src/story/zh-CN.js"></script>
+  <script src="src/maps.js"></script>
   <script src="src/preload.js"></script>
   <script src="src/level.js"></script>
   <script src="src/main.js"></script>

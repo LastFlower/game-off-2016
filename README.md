@@ -2,6 +2,8 @@
 
 Boxie Coody is an Sokuban-like puzzle game, participating [GitHub Game Off 2016](https://github.com/blog/2274-game-off-theme-announcement).
 
+** THE GAME IS NOT FINISHED YET **
+
 ## Introduction
 
 It is your first day as a worker of _BoxieHub_.
@@ -16,6 +18,20 @@ In this game, you could
 * meet Coody the cute robot
 * move the boxies with the help of Coody
 * hack Coody (really?)
+
+## How to Play
+
+Play at [http://lastflower.github.io/game-off-2016](http://lastflower.github.io/game-off-2016) with **latest Chrome or Firefox**.
+
+## CREDIT
+
+LastFlower Team (LastLeaf, tongtongggggg)
+
+* Game design: LastLeaf, tongtongggggg
+* Coding: LastLeaf
+* Art & SE: LastLeaf, tongtongggggg
+
+Our GitHub Game Off 2015 Game, _A Lighted Story_ is also playable at GitHub Pages. [Play _A Lighted Story_](http://mistymiracle.github.io/a-lighted-story/)
 
 ## Abort the Code and Tools
 

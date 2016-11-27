@@ -1,6 +1,7 @@
 window.preload = function(cb){
   var RESOURCES = [
     'svg/boxie.svg',
+    'svg/boxie-green.svg',
     'svg/bubble.svg',
     'svg/coody-awful.svg',
     'svg/coody-failing.svg',
@@ -11,6 +12,9 @@ window.preload = function(cb){
     'svg/coody-teach.svg',
     'svg/coody-thinking.svg',
     'svg/coody-victory.svg',
+    'svg/coody-smile-head.svg',
+    'svg/coody-power-head.svg',
+    'svg/coody-failing-head.svg',
   ]
 
   var preloaded = window.preloaded = {}

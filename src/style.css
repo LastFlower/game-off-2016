@@ -1,10 +1,13 @@
+*[hidden] {
+  display: none;
+}
 body {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
   font-family: 'Varela Round', sans-serif;
   overflow: hidden;
-  background: #eee;
+  background: #202020;
   cursor: default;
 }
 #game-wrapper {
@@ -24,31 +27,113 @@ body {
   transform: translate(50%, 50%) scale(1, 1) translateZ(0);
 }
 
+#cover {
+  position: absolute;
+  right: 160px;
+  top: 90px;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(224,224,224,0.9);
+  text-align: right;
+  color: #808080;
+  font-size: 25px;
+}
+#cover a {
+  color: #808080;
+}
+#cover-title {
+  font-size: 50px;
+  color: #444;
+}
+#cover-start {
+  float: right;
+  border: 5px solid #808080;
+  border-radius: 5px;
+  padding: 10px 20px;
+  background: #bbb;
+  cursor: pointer;
+  margin: 10px 0;
+  color: #222;
+  font-size: 60px;
+}
+.cover-credit {
+  clear: both;
+}
+
 #dialog {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
+  width: 880px;
+  right: 160px;
+  height: 460px;
   bottom: 0;
   cursor: pointer;
+  background: rgba(224,224,224,0.9);
 }
 #pic {
   position: absolute;
-  left: 160px;
+  left: -720px;
   bottom: 0;
+  background: rgba(224,224,224,0.9);
+  border-top-left-radius: 270px;
+  border-top-right-radius: 270px;
 }
 #text-background {
   position: absolute;
-  right: 160px;
+  right: 0;
   bottom: 0;
 }
 #text {
   position: absolute;
   font-size: 40px;
-  right: 220px;
+  right: 60px;
   width: 760px;
   bottom: 80px;
   height: 300px;
   line-height: 60px;
-  color: #222;
+  color: #202020;
+}
+
+#control {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  cursor: default;
+}
+#map-boxies, .map {
+  position: absolute;
+  width: 1600px;
+  height: 800px;
+  top: 70px;
+  left: 160px;
+}
+#map-boxies img {
+  position: absolute;
+}
+#buttons {
+  position: absolute;
+  bottom: 70px;
+  left: 160px;
+  height: 100px;
+}
+.button {
+  border: 10px solid #00d2ff;
+  color: #00d2ff;
+  font-size: 60px;
+  line-height: 80px;
+  width: 140px;
+  display: inline-block;
+  box-sizing: border-box;
+  margin-right: 30px;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.button-wide {
+  width: 360px;
+}
+.button-disabled {
+  border-color: #888;
+  color: #888;
 }

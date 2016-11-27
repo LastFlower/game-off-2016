@@ -4,11 +4,18 @@
   // the level manager
   window.level = function(num){
     var levelConfig = window.STORY.levels[num]
-    if(!levelConfig) window.level(1)
+    if(!levelConfig) return window.level(1)
     var progress = 0
     var nextStep = function(){
       var stepConfig = levelConfig[progress++]
-      if(!stepConfig) return window.level(num + 1)
+      if(!stepConfig) {
+        window.hideMap()
+        $dialog.setAttribute('hidden', '')
+        setTimeout(function(){
+          window.level(num + 1)
+        }, 1000)
+        return
+      }
       if(stepConfig.func) LEVEL_FUNCS[stepConfig.func](num, nextStep)
       else showText(stepConfig.pic, stepConfig.text, nextStep)
     }
@@ -34,9 +41,10 @@
       if(frame / FRAME_PER_TEXT_ADD < text.length) requestAnimationFrame(textAdd)
       else ended = true
     })
-    $dialog.onclick = function(){
+    window.keyboardEventHandler = $dialog.onclick = function(keyName){
+      if(typeof(keyName) === 'string' && keyName !== 'space') return
       if(ended) {
-        $dialog.onclick = null
+        window.keyboardEventHandler = $dialog.onclick = null
         cb()
       } else {
         frame = FRAME_PER_TEXT_ADD * text.length
@@ -45,23 +53,35 @@
   }
 
   // custom level functions
+  var $control = document.getElementById('control')
+  var currentGameKeyHandler = null
   var LEVEL_FUNCS = {
     cover: function(level, cb){
-      cb()
-    },
-    showMap: function(level, cb){
-      cb()
-    },
-    showBoxiesAndTargets: function(level, cb){
-      cb()
-    },
-    startGame: function(level, cb){
-      cb()
+      var $cover = document.getElementById('cover')
+      $cover.removeAttribute('hidden')
+      var $coverStart = document.getElementById('cover-start')
+      window.keyboardEventHandler = $coverStart.onclick = function(keyName){
+        if(typeof(keyName) === 'string' && keyName !== 'space') return
+        $cover.setAttribute('hidden', '')
+        $coverStart.innerHTML = 'Replay &gt;&gt;'
+        window.keyboardEventHandler = $coverStart.onclick = null
+        cb()
+      }
     },
     startGamePreview: function(level, cb){
-      cb()
+      $dialog.setAttribute('hidden', '')
+      window.showMap(level)
+      currentGameKeyHandler = window.keyboardEventHandler
+      window.keyboardEventHandler = $control.onclick = cb
+    },
+    startGame: function(level, cb){
+      $dialog.setAttribute('hidden', '')
+      window.keyboardEventHandler = currentGameKeyHandler
+      $control.onclick = null
+      window.mapEndedCb = cb
     },
     transferPrograms: function(level, cb){
+      $dialog.setAttribute('hidden', '')
       cb()
     },
   }
