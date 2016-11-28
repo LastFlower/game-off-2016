@@ -38,11 +38,11 @@ var MAPS = '\
 =\
 \\       x        \\\
 \\       -        \\\
-\\       -        \\\
-\\       -----x   \\\
-\\    x--o#       \\\
-\\        o       \\\
-\\        -       \\\
+\\     ------     \\\
+\\     -oo----x   \\\
+\\    x--o#--     \\\
+\\     --o---      \\\
+\\       --       \\\
 \\        x       \\\
 ';
 
@@ -61,6 +61,8 @@ var MAPS = '\
 
   var $control = document.getElementById('control')
   var $mapBoxies = document.getElementById('map-boxies')
+  var $f1 = document.getElementById('btn-f1')
+  var $f2 = document.getElementById('btn-f2')
   window.showMap = function(level){
 
     // clone map
@@ -159,13 +161,21 @@ var MAPS = '\
         reverse: '65',
         walk: '13',
         push: '12',
-        victory: '35',
-        breaking: 'breaking',
+        skill: '35',
+        breaking: 'breaking'
       }
       var $audio = document.getElementById('audio-' + MOVE_AUDIO_MAP[moveType])
       $audio.currentTime = 0
       $audio.play()
     }
+
+    // F1 and F2
+    var usingF1 = false
+    var usingF2 = false
+    $f1.classList.toggle('button-active', false)
+    $f2.classList.toggle('button-active', false)
+    $f1.classList.toggle('button-disabled', true)
+    $f2.classList.toggle('button-disabled', true)
 
     // show and wait user events
     $control.removeAttribute('hidden')
@@ -175,43 +185,115 @@ var MAPS = '\
         else updateMap(map, x1, y1, '-')
         if(map[y2][x2] === 'x') updateMap(map, x2, y2, '*')
         else updateMap(map, x2, y2, '#')
-        playAudioByMove('walk')
       },
       push: function(x1, y1, x2, y2, x3, y3){
         if(map[y1][x1] === '*') updateMap(map, x1, y1, 'x')
         else updateMap(map, x1, y1, '-')
         if(map[y2][x2] === 'c') updateMap(map, x2, y2, '*')
         else updateMap(map, x2, y2, '#')
-        if(map[y3][x3] === 'x') updateMap(map, x3, y3, 'c')
-        else updateMap(map, x3, y3, 'o')
-        playAudioByMove('push')
+        if(x3 !== undefined) {
+          if(map[y3][x3] === 'x') updateMap(map, x3, y3, 'c')
+          else updateMap(map, x3, y3, 'o')
+        }
+      },
+      pull: function(x1, y1, x2, y2, x3, y3){
+        if(map[y1][x1] === 'x') updateMap(map, x1, y1, '*')
+        else updateMap(map, x1, y1, '#')
+        if(map[y2][x2] === '*') updateMap(map, x2, y2, 'c')
+        else updateMap(map, x2, y2, 'o')
+        if(map[y3][x3] === 'c') updateMap(map, x3, y3, 'x')
+        else updateMap(map, x3, y3, '-')
       },
       testMove: function(dx, dy){
         var newPosType = map[coodyPos.y + dy] && map[coodyPos.y + dy][coodyPos.x + dx]
         if(newPosType === '-' || newPosType === 'x') {
           moveCoody.walk(coodyPos.x, coodyPos.y, coodyPos.x + dx, coodyPos.y + dy)
           updateBoxies(map, 'smile')
+          playAudioByMove('walk')
         } else if(newPosType === 'o' || newPosType === 'c') {
           var newPosType2 = map[coodyPos.y + dy + dy] && map[coodyPos.y + dy + dy][coodyPos.x + dx + dx]
           if(newPosType2 === '-' || newPosType2 === 'x') {
             moveCoody.push(coodyPos.x, coodyPos.y, coodyPos.x + dx, coodyPos.y + dy, coodyPos.x + dx + dx, coodyPos.y + dy + dy)
             updateBoxies(map, 'power')
-          } else return
-        } else return
+            playAudioByMove('push')
+          } else return false
+        } else return false
+        return true
+      },
+      VEJP: function(dx, dy){
+        var newPosType = map[coodyPos.y + dy] && map[coodyPos.y + dy][coodyPos.x + dx]
+        if(newPosType === 'o' || newPosType === 'c') {
+          var newPosType2 = map[coodyPos.y + dy + dy] && map[coodyPos.y + dy + dy][coodyPos.x + dx + dx]
+          if(newPosType2 === '-' || newPosType2 === 'x') {
+            moveCoody.walk(coodyPos.x, coodyPos.y, coodyPos.x + dx + dx, coodyPos.y + dy + dy)
+            updateBoxies(map, 'smile')
+            playAudioByMove('skill')
+          } else return false
+        } else return false
+        return true
+      },
+      SDBBP: function(dx, dy){
+        var newPosType = map[coodyPos.y + dy] && map[coodyPos.y + dy][coodyPos.x + dx]
+        if(newPosType === 'o' || newPosType === 'c') {
+          moveCoody.push(coodyPos.x, coodyPos.y, coodyPos.x + dx, coodyPos.y + dy)
+          updateBoxies(map, 'failing')
+          playAudioByMove('breaking')
+        } else return false
+        return true
+      },
+      HIBPP: function(dx, dy){
+        dx = -dx
+        dy = -dy
+        var newPosType = map[coodyPos.y + dy] && map[coodyPos.y + dy][coodyPos.x + dx]
+        if(newPosType === 'o' || newPosType === 'c') {
+          var newPosType2 = map[coodyPos.y - dy] && map[coodyPos.y - dy][coodyPos.x - dx]
+          if(newPosType2 === '-' || newPosType2 === 'x') {
+            moveCoody.pull(coodyPos.x - dx, coodyPos.y - dy, coodyPos.x, coodyPos.y, coodyPos.x + dx, coodyPos.y + dy)
+            updateBoxies(map, 'power')
+            playAudioByMove('skill')
+          } else return false
+        } else return false
+        return true
+      },
+      EMMBMP: function(dx, dy){
+        var newPosType = map[coodyPos.y + dy] && map[coodyPos.y + dy][coodyPos.x + dx]
+        if(newPosType === 'o' || newPosType === 'c') {
+          var newPosType2 = map[coodyPos.y + dy * 2] && map[coodyPos.y + dy * 2][coodyPos.x + dx * 2]
+          if(newPosType2 === 'o' || newPosType === 'c') {
+            var newPosType3 = map[coodyPos.y + dy * 3] && map[coodyPos.y + dy * 3][coodyPos.x + dx * 3]
+            if(newPosType3 === '-' || newPosType2 === 'x') {
+              moveCoody.push(coodyPos.x, coodyPos.y, coodyPos.x + dx, coodyPos.y + dy, coodyPos.x + dx * 3, coodyPos.y + dy * 3)
+              updateBoxies(map, 'power')
+              playAudioByMove('skill')
+            } else return false
+          } else return false
+        } else return false
+        return true
+      },
+      test: function(dx, dy){
+        var method = 'testMove'
+        if(usingF1) method = $f1.innerHTML.match(/\[(.*?)\]/)[1]
+        else if(usingF2) method = $f2.innerHTML.match(/\[(.*?)\]/)[1]
+        if(moveCoody[method](dx, dy)) {
+          usingF1 = false
+          usingF2 = false
+          $f1.classList.toggle('button-active', usingF1)
+          $f2.classList.toggle('button-active', usingF2)
+        }
       }
     }
     var userEventHandler = {
       up: function(){
-        moveCoody.testMove(0, -1)
+        moveCoody.test(0, -1)
       },
       down: function(){
-        moveCoody.testMove(0, 1)
+        moveCoody.test(0, 1)
       },
       left: function(){
-        moveCoody.testMove(-1, 0)
+        moveCoody.test(-1, 0)
       },
       right: function(){
-        moveCoody.testMove(1, 0)
+        moveCoody.test(1, 0)
       },
       reverse: function(){
         if(history.length <= 1) return
@@ -220,13 +302,34 @@ var MAPS = '\
         updateBoxies(map, 'failing')
         playAudioByMove('reverse')
       },
-      f1: function(){},
-      f2: function(){},
+      f1: function(){
+        if($f1.classList.contains('button-disabled')) return
+        usingF1 = !usingF1
+        usingF2 = false
+        $f1.classList.toggle('button-active', usingF1)
+        $f2.classList.toggle('button-active', usingF2)
+      },
+      f2: function(){
+        if($f2.classList.contains('button-disabled')) return
+        usingF1 = false
+        usingF2 = !usingF2
+        $f1.classList.toggle('button-active', usingF1)
+        $f2.classList.toggle('button-active', usingF2)
+      },
+      f4: function(){
+        window.mapEndedCb() // TODO
+      }
     }
     window.keyboardEventHandler = function(keyName){
       if(userEventHandler[keyName]) userEventHandler[keyName]()
     }
     updateBoxies(map)
+  }
+  window.setMapF = function(which, name){
+    var $f = $f1
+    if(which === 2) $f = $f2
+    $f.classList.toggle('button-disabled', false)
+    $f.innerHTML = '[' + name + ']'
   }
   window.hideMap = function(){
     $control.setAttribute('hidden', '')

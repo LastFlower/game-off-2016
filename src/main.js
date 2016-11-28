@@ -19,6 +19,11 @@ window.onload = function(){
       if(id.slice(0, 4) !== 'btn-') return
       if(window.keyboardEventHandler) window.keyboardEventHandler(id.slice(4))
     }
+    document.getElementById('transfer').onclick = function(e){
+      var btn = e.target.getAttribute('btn')
+      if(!btn) return
+      if(window.keyboardEventHandler) window.keyboardEventHandler(btn)
+    }
 
     window.addEventListener('keyup', function(e){
       var KEY_CODE_MAP = {
@@ -35,6 +40,8 @@ window.onload = function(){
         13: 'space',
         49: 'f1',
         50: 'f2',
+        51: 'f3',
+        52: 'f4'
       }
       var keyName = KEY_CODE_MAP[e.keyCode]
       if(keyName && window.keyboardEventHandler) window.keyboardEventHandler(keyName)

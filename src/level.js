@@ -33,7 +33,7 @@
       smile: '13',
       teach: '12',
       thinking: '12',
-      victory: '35',
+      victory: '35'
     }
     var $audio = document.getElementById('audio-' + PIC_AUDIO_MAP[pic])
     $audio.currentTime = 0
@@ -91,7 +91,10 @@
       $dialog.setAttribute('hidden', '')
       window.showMap(level)
       currentGameKeyHandler = window.keyboardEventHandler
-      window.keyboardEventHandler = $control.onclick = cb
+      window.keyboardEventHandler = $control.onclick = function(){
+        window.keyboardEventHandler = $control.onclick = null
+        cb()
+      }
     },
     startGame: function(level, cb){
       $dialog.setAttribute('hidden', '')
@@ -101,7 +104,27 @@
     },
     transferPrograms: function(level, cb){
       $dialog.setAttribute('hidden', '')
-      cb()
-    },
+      var $transferList = document.getElementById('transfer-list')
+      for(var i=0; i<4; i++) {
+        if(i + 2 <= level) $transferList.childNodes[i].removeAttribute('hidden')
+        else $transferList.childNodes[i].setAttribute('hidden', '')
+      }
+      if(level >= 4) $transferList.childNodes[1].classList.toggle('transfer-item-disabled', true)
+      var $transfer = document.getElementById('transfer')
+      $transfer.removeAttribute('hidden')
+      var needSelect = (level === 2 ? 1 : 2)
+      var selected = 0
+      window.keyboardEventHandler = function(keyName){
+        if(keyName[0] !== 'f') return
+        var sel = keyName[1] - 1
+        if($transferList.childNodes[sel].classList.contains('transfer-item-disabled')) return
+        if($transferList.childNodes[sel].getAttribute('hidden') === '') return
+        window.setMapF(++selected, $transferList.childNodes[sel].id)
+        if(selected === needSelect) {
+          $transfer.setAttribute('hidden', '')
+          cb()
+        }
+      }
+    }
   }
 })()

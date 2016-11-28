@@ -52,7 +52,10 @@ window.STORY = {
       { pic: 'victory', text: '你猜对啦！就是Extreme Mysterious Magical Boxie Moving Program！' },
       { pic: 'smile', text: '这个程序可以把连在一起的箱子像变魔法一样推动，毫不费力。' },
       { pic: 'power', text: '来试试吧！' },
+      { func: 'startGamePreview' },
       { func: 'transferPrograms' },
+      { pic: 'sad', text: '我的内存太小了，只能接收两个程序……' },
+      { pic: 'failing', text: '请加油吧！' },
       { func: 'startGame' },
       { pic: 'failing', text: '好累啊，不过一周的工作终于结束了！' },
       { pic: 'victory', text: 'Happy weekend！' }
