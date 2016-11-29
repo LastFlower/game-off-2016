@@ -1,22 +1,22 @@
 window.STORY = {
   hints: {
-    VEJP: '跳到箱子的另一侧',
-    SDBBP: '？？？',
-    HIBPP: '拉箱子',
-    EMMBMP: '推动相连的两个箱子'
+    VEJP: 'Jump over a boxie',
+    SDBBP: '? ? ?',
+    HIBPP: 'Pull a boxie',
+    EMMBMP: 'Push two connecting boxies'
   },
   levels: {
     1: [
-      { pic: 'smile', text: '你好哇，欢迎来到Boxiehub工作～' },
+      { pic: 'smile', text: 'Hi, you must be the new employee here! Welcome to BoxieHub!' },
       { func: 'cover' },
-      { pic: 'smile', text: '那么从今天开始我就是你的搭档啦，我叫Coody，是个小机器人～' },
+      { pic: 'smile', text: "From today on, I would be your partner. I'm Coody the cute robot!" },
       { func: 'startGamePreview' },
-      { pic: 'idea', text: '现在屏幕上展示出的就是工厂的地图。' },
-      { pic: 'teach', text: '每天都会有箱子被运送到工厂，我们的工作就是把这些箱子推到它们应该在的位置。' },
-      { pic: 'power', text: '我的力气很大的哦，不管多重的箱子我都能推得动。' },
-      { pic: 'smile', text: '所以你的工作就是看着地图告诉我应该怎么推就可以啦～' },
+      { pic: 'idea', text: 'Now the map of BoxieHub is here on the screen.' },
+      { pic: 'teach', text: 'There would be some boxies on the ground. Our job is to push the box to the correct position.' },
+      { pic: 'power', text: 'I am full of power so that I could push any boxie no matter how heavy it is.' },
+      { pic: 'smile', text: 'So your job is to watch the map and tell me how to move them.' },
       { func: 'startGame' },
-      { pic: 'victory', text: '今天的工作顺利完成啦～' }
+      { pic: 'victory', text: 'Finished! Great job today!' }
     ],
     2: [
       { pic: 'smile', text: 'Day 2! 今天的工作更多了呢……加油吧！' },

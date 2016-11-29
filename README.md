@@ -23,6 +23,13 @@ In this game, you could
 
 Play at [http://lastflower.github.io/game-off-2016](http://lastflower.github.io/game-off-2016) with **latest Chrome or Firefox**.
 
+Use mouse to control, or keyboard shortcuts
+* space to communicate
+* arrow keys or WASD to move
+* [1] [2] to use a special program
+* [R] to undo last step
+* [L] to reset whole level (secret :)
+
 ## CREDIT
 
 LastFlower Team (LastLeaf, tongtongggggg)

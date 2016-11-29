@@ -302,6 +302,12 @@ var MAPS = '\
         updateBoxies(map, 'failing')
         playAudioByMove('reverse')
       },
+      'level-reset': function(){
+        while(history.length > 1) history.pop()
+        map = history.pop().split('\n')
+        updateBoxies(map, 'failing')
+        playAudioByMove('reverse')
+      },
       f1: function(){
         if($f1.classList.contains('button-disabled')) return
         usingF1 = !usingF1

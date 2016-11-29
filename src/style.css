@@ -127,7 +127,7 @@ body {
 .button {
   border: 10px solid #00d2ff;
   color: #00d2ff;
-  font-size: 60px;
+  font-size: 54px;
   line-height: 80px;
   width: 120px;
   display: inline-block;
@@ -166,7 +166,7 @@ body {
 .transfer-item {
   padding: 10px 20px;
   border: 10px solid #00d2ff;
-  margin: 20px 20px 0;
+  margin: 20px;
   color: #00d2ff;
   background: #222;
   border-radius: 10px;
@@ -175,4 +175,9 @@ body {
 .transfer-item-disabled {
   color: #888;
   border-color: #888;
+}
+#transfer-hint {
+  height: 60px;
+  line-height: 60px;
+  font-size: 40px;
 }

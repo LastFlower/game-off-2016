@@ -9,6 +9,12 @@ window.onload = function(){
   window.addEventListener('resize', resizer)
   resizer()
 
+  window.addEventListener("beforeunload", function (e) {
+    var confirmationMessage = "Game progress would not be saved!";
+    e.returnValue = confirmationMessage
+    return confirmationMessage
+  });
+
   window.preload(function(){
     document.body.removeChild(document.getElementById('loading'))
     document.getElementById('game-wrapper').removeAttribute('hidden')
@@ -25,6 +31,22 @@ window.onload = function(){
       if(!btn) return
       if(window.keyboardEventHandler) window.keyboardEventHandler(btn)
     }
+    var $transferHint = document.getElementById('transfer-hint')
+    var onmouseenter = function(e){
+      $transferHint.innerHTML = window.STORY.hints[this.id]
+    }
+    var onmouseleave = function(e){
+      $transferHint.innerHTML = ''
+    }
+    var $transferList = document.getElementById('transfer-list')
+    for(var i=0; i<$transferList.childNodes.length; i++){
+      if($transferList.childNodes[i] instanceof window.HTMLElement) {
+        $transferList.childNodes[i].onmouseenter = onmouseenter
+        $transferList.childNodes[i].onmouseleave = onmouseleave
+      } else {
+        $transferList.removeChild($transferList.childNodes[i--])
+      }
+    }
 
     window.addEventListener('keyup', function(e){
       var KEY_CODE_MAP = {
@@ -37,6 +59,7 @@ window.onload = function(){
         65: 'left',
         68: 'right',
         82: 'reverse',
+        76: 'level-reset',
         32: 'space',
         13: 'space',
         49: 'f1',
