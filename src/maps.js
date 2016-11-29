@@ -148,7 +148,7 @@ var MAPS = '\
       }
       if(ended) {
         window.keyboardEventHandler = null
-        window.mapEndedCb()
+        setTimeout(window.mapEndedCb, 1000)
       }
     }
     var updateMap = function(map, x, y, char){
