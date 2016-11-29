@@ -27,23 +27,23 @@ var MAPS = '\
 \\   ----  ----   \\\
 \\   ----------   \\\
 =\
-\\       x        \\\
-\\       -        \\\
-\\       -        \\\
-\\       o----x   \\\
-\\    x--o#       \\\
-\\        o       \\\
-\\        -       \\\
-\\        x       \\\
+\\   x---oo#--x   \\\
+\\   -   --   -   \\\
+\\    ---x -o-    \\\
+\\   - -xo--x -   \\\
+\\   -- -oox --   \\\
+\\   --x -- ---   \\\
+\\   ---o- x-x-   \\\
+\\   ----oo----   \\\
 =\
-\\       x        \\\
-\\       -        \\\
-\\     ------     \\\
-\\     -oo----x   \\\
-\\    x--o#--     \\\
-\\     --o---      \\\
-\\       --       \\\
-\\        x       \\\
+\\   x-o-oo#-x-   \\\
+\\   -   --   -   \\\
+\\    x-xx oox    \\\
+\\   - -oox-- -   \\\
+\\   -- oo-- --   \\\
+\\   x-x -x ---   \\\
+\\   ----x ----   \\\
+\\   -- -oo- --   \\\
 ';
 
 (function(){
@@ -259,9 +259,9 @@ var MAPS = '\
         var newPosType = map[coodyPos.y + dy] && map[coodyPos.y + dy][coodyPos.x + dx]
         if(newPosType === 'o' || newPosType === 'c') {
           var newPosType2 = map[coodyPos.y + dy * 2] && map[coodyPos.y + dy * 2][coodyPos.x + dx * 2]
-          if(newPosType2 === 'o' || newPosType === 'c') {
+          if(newPosType2 === 'o' || newPosType2 === 'c') {
             var newPosType3 = map[coodyPos.y + dy * 3] && map[coodyPos.y + dy * 3][coodyPos.x + dx * 3]
-            if(newPosType3 === '-' || newPosType2 === 'x') {
+            if(newPosType3 === '-' || newPosType3 === 'x') {
               moveCoody.push(coodyPos.x, coodyPos.y, coodyPos.x + dx, coodyPos.y + dy, coodyPos.x + dx * 3, coodyPos.y + dy * 3)
               updateBoxies(map, 'power')
               playAudioByMove('skill')
@@ -315,9 +315,6 @@ var MAPS = '\
         usingF2 = !usingF2
         $f1.classList.toggle('button-active', usingF1)
         $f2.classList.toggle('button-active', usingF2)
-      },
-      f4: function(){
-        window.mapEndedCb() // TODO
       }
     }
     window.keyboardEventHandler = function(keyName){
@@ -329,7 +326,7 @@ var MAPS = '\
     var $f = $f1
     if(which === 2) $f = $f2
     $f.classList.toggle('button-disabled', false)
-    $f.innerHTML = '[' + name + ']'
+    $f.innerHTML = which + ' [' + name + ']'
   }
   window.hideMap = function(){
     $control.setAttribute('hidden', '')

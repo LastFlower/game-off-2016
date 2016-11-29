@@ -10,7 +10,7 @@ window.STORY = {
       { pic: 'power', text: '我的力气很大的哦，不管多重的箱子我都能推得动。' },
       { pic: 'smile', text: '所以你的工作就是看着地图告诉我应该怎么推就可以啦～' },
       { func: 'startGame' },
-      { pic: 'victory', text: '今天的工作顺利完成啦～' },
+      { pic: 'victory', text: '今天的工作顺利完成啦～' }
     ],
     2: [
       { pic: 'smile', text: 'Day 2! 今天的工作更多了呢……加油吧！' },
@@ -21,7 +21,7 @@ window.STORY = {
       { pic: 'idea', text: '啊，[VEJP]就是Very Exciting Jumping Program的意思啦！把这个程序传输给我，我就可以一下子跳到箱子的对面～' },
       { func: 'transferPrograms' },
       { func: 'startGame' },
-      { pic: 'victory', text: '今天的工作顺利完成啦～' },
+      { pic: 'victory', text: '今天的工作顺利完成啦～' }
     ],
     3: [
       { pic: 'smile', text: 'Day 3! 今天也加油吧！' },
@@ -42,7 +42,7 @@ window.STORY = {
       { pic: 'smile', text: '哈哈，昨天我让Hasky制作了一个叫做[HIBPP]的程序。' },
       { pic: 'victory', text: 'Hyper Intelligent Boxie Pulling Program！' },
       { func: 'transferPrograms' },
-      { pic: 'power', text: '有了这个程序我就可以拉动箱子啦！但是拉箱子比推更费劲，所以只能拉比较轻的箱子，就是黄色的那些。' },
+      { pic: 'power', text: '有了这个程序我就可以拉动箱子啦！' },
       { func: 'startGame' },
       { pic: 'victory', text: '今天的工作顺利完成啦～' },
       { pic: 'thinking', text: '不过，如果工作更复杂的话，光靠[VEJP]和[HIBPP]还是不够用呢……' }
@@ -53,12 +53,13 @@ window.STORY = {
       { pic: 'smile', text: '这个程序可以把连在一起的箱子像变魔法一样推动，毫不费力。' },
       { pic: 'power', text: '来试试吧！' },
       { func: 'startGamePreview' },
-      { func: 'transferPrograms' },
       { pic: 'sad', text: '我的内存太小了，只能接收两个程序……' },
+      { pic: 'teach', text: '所以今天[VEJP]就不能用了哦。' },
+      { func: 'transferPrograms' },
       { pic: 'failing', text: '请加油吧！' },
       { func: 'startGame' },
       { pic: 'failing', text: '好累啊，不过一周的工作终于结束了！' },
       { pic: 'victory', text: 'Happy weekend！' }
-    ],
+    ]
   }
 }

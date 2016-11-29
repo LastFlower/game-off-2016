@@ -17,6 +17,7 @@ window.onload = function(){
     document.getElementById('buttons').onclick = function(e){
       var id = e.target.id
       if(id.slice(0, 4) !== 'btn-') return
+      if(e.target.classList.contains('button-disabled')) return
       if(window.keyboardEventHandler) window.keyboardEventHandler(id.slice(4))
     }
     document.getElementById('transfer').onclick = function(e){
