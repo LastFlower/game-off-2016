@@ -5,16 +5,16 @@ Boxie Coody is an Sokuban-like puzzle game, participating [GitHub Game Off 2016]
 ## Introduction
 
 It is your first day as a worker of _BoxieHub_.
-Coody, your fellow robot, would teach how to finish your daily work.
+Coody, your fellow robot, will teach how to finish your daily work.
 
 _Welcome to BoxieHub!_
 
 ![Coody](coody-smile-360.png)
 
-In this game, you could
+In this game, you can
 
 * meet Coody the cute robot
-* move the boxies with the help of Coody
+* move the boxies with the Coody's help
 * hack Coody (really?)
 
 ## How to Play
@@ -38,11 +38,11 @@ LastFlower Team (LastLeaf, tongtongggggg)
 
 Our GitHub Game Off 2015 Game, _A Lighted Story_ is also playable at GitHub Pages. [Play _A Lighted Story_](http://mistymiracle.github.io/a-lighted-story/)
 
-## Abort the Code and Tools
+## About the Code and Tools
 
 This game is based on HTML5 technologies.
 Unlike HTML5 canvas games, this game is largely based on SVG and simple DOM animations,
-so that it could work without any game framework.
+so that it can work without any game framework.
 
 The original SVG graphics is done with [Inkscape](https://inkscape.org/).
 Sound effects is done with [LMMS](https://lmms.io/) and [GeneralUser GS](http://www.schristiancollins.com/generaluser.php).
