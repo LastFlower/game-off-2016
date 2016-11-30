@@ -40,6 +40,10 @@ Special Thanks to Chossy Zhang for testing and advices.
 
 Our GitHub Game Off 2015 Game, _A Lighted Story_ is also playable at GitHub Pages. [Play _A Lighted Story_](http://mistymiracle.github.io/a-lighted-story/)
 
+## Screenshot
+
+![Screenshot](screenshot.png)
+
 ## About the Code and Tools
 
 This game is based on HTML5 technologies.
