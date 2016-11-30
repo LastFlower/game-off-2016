@@ -36,6 +36,8 @@ LastFlower Team (LastLeaf, tongtongggggg)
 * Coding: LastLeaf
 * Art & SE: LastLeaf, tongtongggggg
 
+Special Thanks to Chossy Zhang for testing and advices.
+
 Our GitHub Game Off 2015 Game, _A Lighted Story_ is also playable at GitHub Pages. [Play _A Lighted Story_](http://mistymiracle.github.io/a-lighted-story/)
 
 ## About the Code and Tools
@@ -44,7 +46,7 @@ This game is based on HTML5 technologies.
 Unlike HTML5 canvas games, this game is largely based on SVG and simple DOM animations,
 so that it can work without any game framework.
 
-The original SVG graphics is done with [Inkscape](https://inkscape.org/).
+Some SVG graphics is done with [Inkscape](https://inkscape.org/).
 Sound effects is done with [LMMS](https://lmms.io/) and [GeneralUser GS](http://www.schristiancollins.com/generaluser.php).
 
 ## LICENSE
