@@ -85,6 +85,11 @@
         $coverStart.innerHTML = 'Replay &gt;&gt;'
         window.keyboardEventHandler = $coverStart.onclick = null
         cb()
+        if(window.MOBILE_MODE) {
+          if(document.body.requestFullScreen) {
+            document.body.requestFullScreen()
+          }
+        }
       }
     },
     startGamePreview: function(level, cb){

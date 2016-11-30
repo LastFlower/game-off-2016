@@ -1,10 +1,18 @@
 window.onload = function(){
+  window.MOBILE_MODE = (window.ontouchstart !== undefined)
+
   var $game = document.getElementById('game')
   function resizer(){
     var width = document.documentElement.clientWidth
     var height = document.documentElement.clientHeight
-    var ratio = Math.min(width / 1920, height / 1080)
-    $game.style.transform = 'translate(-50%, -50%) scale(' + ratio + ', ' + ratio + ') translateZ(0)'
+    var ratio = 1
+    if(!window.MOBILE_MODE || width >= height) {
+      ratio = Math.min(width / 1920, height / 1080)
+      $game.style.transform = 'translate(-50%, -50%) scale(' + ratio + ', ' + ratio + ') translateZ(0)'
+    } else {
+      ratio = Math.min(width / 1080, height / 1920)
+      $game.style.transform = 'translate(-50%, -50%) scale(' + ratio + ', ' + ratio + ') rotate(90deg) translateZ(0)'
+    }
   }
   window.addEventListener('resize', resizer)
   resizer()
