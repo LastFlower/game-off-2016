@@ -110,7 +110,24 @@ var MAPS = '\
         $cell.setAttribute('y', r * 100)
         $cell.setAttribute('width', 100)
         $cell.setAttribute('height', 100)
+        $cell.setAttribute('pos-row', r)
+        $cell.setAttribute('pos-col', c)
         $map.appendChild($cell)
+      }
+    }
+    $map.onclick = function(e){
+      console.info(e.target)
+      if(!e.target.getAttribute('pos-row')) return
+      var r = Number(e.target.getAttribute('pos-row'))
+      var c = Number(e.target.getAttribute('pos-col'))
+      if(r === coodyPos.y) {
+        var dx = c - coodyPos.x
+        if(dx < 0 && dx >= -2) moveCoody.test(-1, 0)
+        else if(dx > 0 && dx <= 2) moveCoody.test(1, 0)
+      } else if(c === coodyPos.x) {
+        var dy = r - coodyPos.y
+        if(dy < 0 && dy >= -2) moveCoody.test(0, -1)
+        else if(dy > 0 && dy <= 2) moveCoody.test(0, 1)
       }
     }
     $control.replaceChild($map, $control.childNodes[0])

@@ -9,6 +9,8 @@
   display: none;
 }
 body {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: transparent;
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
@@ -114,6 +116,9 @@ body {
   height: 800px;
   top: 70px;
   left: 160px;
+}
+#map-boxies {
+  pointer-events: none;
 }
 #map-boxies img {
   position: absolute;
