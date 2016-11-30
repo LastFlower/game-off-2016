@@ -1,5 +1,5 @@
 (function(){
-  var FRAME_PER_TEXT_ADD = 3
+  var FRAME_PER_TEXT_ADD = 2
 
   // the level manager
   window.level = function(num){

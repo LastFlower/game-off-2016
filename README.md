@@ -2,8 +2,6 @@
 
 Boxie Coody is an Sokuban-like puzzle game, participating [GitHub Game Off 2016](https://github.com/blog/2274-game-off-theme-announcement).
 
-** THE GAME IS NOT FINISHED YET **
-
 ## Introduction
 
 It is your first day as a worker of _BoxieHub_.
