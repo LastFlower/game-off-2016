@@ -9,9 +9,11 @@ window.onload = function(){
     if(!window.MOBILE_MODE || width >= height) {
       ratio = Math.min(width / 1920, height / 1080)
       $game.style.transform = 'translate(-50%, -50%) scale(' + ratio + ', ' + ratio + ') translateZ(0)'
+      window.ROTATED = false
     } else {
       ratio = Math.min(width / 1080, height / 1920)
       $game.style.transform = 'translate(-50%, -50%) scale(' + ratio + ', ' + ratio + ') rotate(90deg) translateZ(0)'
+      window.ROTATED = true
     }
   }
   window.addEventListener('resize', resizer)
@@ -78,6 +80,41 @@ window.onload = function(){
       var keyName = KEY_CODE_MAP[e.keyCode]
       if(keyName && window.keyboardEventHandler) window.keyboardEventHandler(keyName)
     })
+
+    if(window.MOBILE_MODE) {
+      var touchstartX = 0
+      var touchstartY = 0
+      document.getElementById('game-wrapper').addEventListener('touchstart', function(e){
+        if(e.touches.length > 1) return
+        touchstartX = e.touches[0].pageX
+        touchstartY = e.touches[0].pageY
+      })
+      document.getElementById('game-wrapper').addEventListener('touchmove', function(e){
+        if(e.touches.length > 1 || !touchstartX) return
+        var dx = e.touches[0].pageX - touchstartX
+        var dy = e.touches[0].pageY - touchstartY
+        var ev = ''
+        if(Math.abs(dx) > Math.abs(dy)) {
+          if(dx > 30) ev = 'right'
+          if(dx < -30) ev = 'left'
+        } else {
+          if(dy > 30) ev = 'down'
+          if(dy < -30) ev = 'up'
+        }
+        if(window.ROTATED && ev) {
+          ev = ({
+            left: 'down',
+            up: 'left',
+            right: 'up',
+            down: 'right'
+          })[ev]
+        }
+        if(ev) {
+          if(window.keyboardEventHandler) window.keyboardEventHandler(ev)
+          touchstartX = 0
+        }
+      })
+    }
 
     window.level(1)
   })

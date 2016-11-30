@@ -116,7 +116,6 @@ var MAPS = '\
       }
     }
     $map.onclick = function(e){
-      console.info(e.target)
       if(!e.target.getAttribute('pos-row')) return
       var r = Number(e.target.getAttribute('pos-row'))
       var c = Number(e.target.getAttribute('pos-col'))
