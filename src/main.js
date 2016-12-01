@@ -8,10 +8,12 @@ window.onload = function(){
     var ratio = 1
     if(!window.MOBILE_MODE || width >= height) {
       ratio = Math.min(width / 1920, height / 1080)
+      if(window.MOBILE_MODE) ratio *= 1.15
       $game.style.transform = 'translate(-50%, -50%) scale(' + ratio + ', ' + ratio + ') translateZ(0)'
       window.ROTATED = false
     } else {
       ratio = Math.min(width / 1080, height / 1920)
+      if(window.MOBILE_MODE) ratio *= 1.15
       $game.style.transform = 'translate(-50%, -50%) scale(' + ratio + ', ' + ratio + ') rotate(90deg) translateZ(0)'
       window.ROTATED = true
     }
@@ -91,6 +93,7 @@ window.onload = function(){
       })
       document.getElementById('game-wrapper').addEventListener('touchmove', function(e){
         if(e.touches.length > 1 || !touchstartX) return
+        e.preventDefault()
         var dx = e.touches[0].pageX - touchstartX
         var dy = e.touches[0].pageY - touchstartY
         var ev = ''
