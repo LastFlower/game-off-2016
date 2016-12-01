@@ -287,6 +287,7 @@ var MAPS = '\
         return true
       },
       test: function(dx, dy){
+        if(keyboardEventHandler !== window.keyboardEventHandler) return
         var method = 'testMove'
         if(usingF1) method = $f1.innerHTML.match(/\[(.*?)\]/)[1]
         else if(usingF2) method = $f2.innerHTML.match(/\[(.*?)\]/)[1]
@@ -339,7 +340,7 @@ var MAPS = '\
         $f2.classList.toggle('button-active', usingF2)
       }
     }
-    window.keyboardEventHandler = function(keyName){
+    var keyboardEventHandler = window.keyboardEventHandler = function(keyName){
       if(userEventHandler[keyName]) userEventHandler[keyName]()
     }
     updateBoxies(map)
