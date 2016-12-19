@@ -114,8 +114,8 @@
         if(i + 2 <= level) $transferList.childNodes[i].removeAttribute('hidden')
         else $transferList.childNodes[i].setAttribute('hidden', '')
       }
-      if(level >= 4) $transferList.childNodes[1].classList.toggle('transfer-item-disabled', true)
-      if(level >= 5) $transferList.childNodes[0].classList.toggle('transfer-item-disabled', true)
+      $transferList.childNodes[1].classList.toggle('transfer-item-disabled', level >= 4)
+      $transferList.childNodes[0].classList.toggle('transfer-item-disabled', level >= 5)
       var $transfer = document.getElementById('transfer')
       $transfer.removeAttribute('hidden')
       var needSelect = (level === 2 ? 1 : 2)
